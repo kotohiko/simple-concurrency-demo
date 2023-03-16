@@ -5,6 +5,7 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.Future;
 import java.util.concurrent.RecursiveTask;
 
+@SuppressWarnings("all")
 public class ForkJoinTaskExample extends RecursiveTask<Integer> {
 
     private final int start;
@@ -20,10 +21,9 @@ public class ForkJoinTaskExample extends RecursiveTask<Integer> {
 
         //生成一个计算任务，计算1+2+3+4
         ForkJoinTaskExample task = new ForkJoinTaskExample(1, 40000);
-
         //执行一个任务
-        Future<Integer> result = forkjoinPool.submit(task);
 
+        Future<Integer> result = forkjoinPool.submit(task);
         try {
             System.out.println(result.get());
         } catch (Exception e) {
@@ -33,8 +33,7 @@ public class ForkJoinTaskExample extends RecursiveTask<Integer> {
 
     @Override
     protected Integer compute() {
-        int sum = 0;
-
+        int sum;
         ForkJoinTaskExample item1 = new ForkJoinTaskExample(1, 10000);
         ForkJoinTaskExample item2 = new ForkJoinTaskExample(10001, 20000);
         ForkJoinTaskExample item3 = new ForkJoinTaskExample(20001, 30000);

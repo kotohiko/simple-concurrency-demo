@@ -13,6 +13,7 @@ public class SemaphoreSample1 {
         ExecutorService threadPool = Executors.newCachedThreadPool();
         // 定义5个信号量，也就是说服务器只允许5个人在里面玩
         Semaphore semaphore = new Semaphore(5);
+        // 循环次数为等待玩家数目
         for (int i = 1; i <= 20; ++i) {
             threadPool.execute(() -> {
                 try {

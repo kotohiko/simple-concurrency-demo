@@ -8,10 +8,12 @@ public class FutureSample {
         for (int i = 2; i <= 10000; i++) {
             Computer c = new Computer();
             c.setNum(i);
-            //Future是对用于计算的线程进行监听，因为计算是在其他线程中执行的，所以这个返回结果的过程是异步的
-            Future<Boolean> result = executorService.submit(c);//将c对象提交给线程池，如有空闲线程立即执行里面的call方法
+            // Future是对用于计算的线程进行监听，因为计算是在其他线程中执行的，所以这个返回结果的过程是异步的
+            // 将c对象提交给线程池，如有空闲线程立即执行里面的call方法
+            Future<Boolean> result = executorService.submit(c);
             try {
-                Boolean r = result.get(); //用于获取返回值，如果线程内部的call没有执行完成，则进入等待状态，直到计算完成
+                // 用于获取返回值，如果线程内部的call没有执行完成，则进入等待状态，直到计算完成
+                Boolean r = result.get();
                 if (r) {
                     System.out.println(c.getNum());
                 }
@@ -23,8 +25,8 @@ public class FutureSample {
     }
 }
 
-
 class Computer implements Callable<Boolean> {
+
     private Integer num;
 
     public Integer getNum() {
@@ -44,7 +46,6 @@ class Computer implements Callable<Boolean> {
                 break;
             }
         }
-
         return isPrime;
     }
 }

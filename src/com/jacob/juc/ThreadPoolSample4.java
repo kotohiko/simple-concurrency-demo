@@ -9,7 +9,6 @@ public class ThreadPoolSample4 {
     public static void main(String[] args) {
         // 可调度线程池
         ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(5);
-
         // 延迟三秒执行一次Run方法
         scheduledThreadPool.schedule(() -> System.out.println("延迟3秒执行"), 3, TimeUnit.SECONDS);
         // Timer , 项目实际开发中scheduledThreadPool与Timer都不会用到，应为有成熟的调度框架Quartz，或者Spring自带调度，
