@@ -9,7 +9,7 @@ import java.util.concurrent.Semaphore;
 public class ConcurrentHashMapSample {
 
     // 同时模拟的并发访问用户数量
-    public static int users = 100;
+    public static int userNumbers = 100;
     // 用户下载的真实总数
     public static int downTotal = 50000;
     // 计数器
@@ -17,7 +17,7 @@ public class ConcurrentHashMapSample {
 
     public static void main(String[] args) {
         ExecutorService executorService = Executors.newCachedThreadPool();
-        final Semaphore semaphore = new Semaphore(users);
+        final Semaphore semaphore = new Semaphore(userNumbers);
         for (int i = 0; i < downTotal; ++i) {
             final Integer index = i;
             executorService.execute(() -> {
@@ -36,7 +36,7 @@ public class ConcurrentHashMapSample {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        executorService.shutdown();//关闭调度服务
+        executorService.shutdown();
         System.out.println("下载总数：" + count.size());
     }
 }
