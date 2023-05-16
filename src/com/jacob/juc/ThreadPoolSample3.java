@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 public class ThreadPoolSample3 {
     public static void main(String[] args) {
         // 调度器对象
-        // ExecutorService用于管理线程池
+        // ExecutorService 用于管理线程池
         // 单线程线程池
         ExecutorService threadPool = Executors.newSingleThreadExecutor();
         for (int i = 1; i <= 1000; i++) {
@@ -19,8 +19,8 @@ public class ThreadPoolSample3 {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        //shutdown() 代表关闭线程池（等待所有线程完成）
-        //shutdownNow() 代表立即终止线程池的运行，不等待线程,不推荐使用
+        // shutdown() 代表关闭线程池（等待所有线程完成）
+        // shutdownNow() 代表立即终止线程池的运行，不等待线程,不推荐使用
         threadPool.shutdown();
     }
 }

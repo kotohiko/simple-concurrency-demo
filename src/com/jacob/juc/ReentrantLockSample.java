@@ -40,7 +40,8 @@ public class ReentrantLockSample {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        executorService.shutdown();//关闭调度服务
+        // 关闭调度服务
+        executorService.shutdown();
         System.out.println("下载总数：" + count);
     }
 
@@ -52,9 +53,5 @@ public class ReentrantLockSample {
         } finally {
             lock.unlock(); //解锁，一定要放在finally里面否则会出现死锁
         }
-
-
     }
-
-
 }

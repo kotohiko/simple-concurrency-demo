@@ -25,7 +25,8 @@ public class CyclicBarrierSample {
     private static void go() {
         System.out.println(Thread.currentThread().getName() + ":准备就绪");
         try {
-            cyclicBarrier.await();//设置屏障点，当累计5个线程都准备好后，才运行后面的代码
+            // 设置屏障点，当累计 5 个线程都准备好后，才运行后面的代码
+            cyclicBarrier.await();
             System.out.println(Thread.currentThread().getName() + ":开始运行");
         } catch (InterruptedException | BrokenBarrierException e) {
             e.printStackTrace();

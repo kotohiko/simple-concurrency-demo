@@ -3,6 +3,7 @@ package com.jacob.thread;
 /**
  * 死锁示例
  */
+@SuppressWarnings("all")
 public class DeadLock {
 
     private static final String fileA = "A文件";

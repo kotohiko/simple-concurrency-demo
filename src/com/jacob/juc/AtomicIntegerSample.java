@@ -18,7 +18,7 @@ public class AtomicIntegerSample {
     public static AtomicInteger count = new AtomicInteger();
 
     public static void main(String[] args) {
-        // 调度器，JDK1.5后提供的concurrent包对于并发的支持
+        // 调度器，JDK 5 后提供的 concurrent 包对于并发的支持
         ExecutorService executorService = Executors.newCachedThreadPool();
         // 信号量，用于模拟并发的人数
         final Semaphore semaphore = new Semaphore(userNumbers);
@@ -39,7 +39,8 @@ public class AtomicIntegerSample {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        executorService.shutdown();//关闭调度服务
+        // 关闭调度服务
+        executorService.shutdown();
         System.out.println("下载总数：" + count);
     }
 

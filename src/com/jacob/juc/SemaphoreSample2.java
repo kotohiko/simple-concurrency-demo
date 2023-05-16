@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class SemaphoreSample2 {
     public static void main(String[] args) {
         ExecutorService threadPool = Executors.newCachedThreadPool();
-        // 定义5个信号量，也就是说服务器只允许5个人在里面玩
+        // 定义 5 个信号量，也就是说服务器只允许 5 个人在里面玩
         Semaphore semaphore = new Semaphore(5);
         for (int i = 1; i <= 20; ++i) {
             threadPool.execute(() -> {

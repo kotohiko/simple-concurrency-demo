@@ -13,7 +13,7 @@ public class CountDownSample {
 
     public static void main(String[] args) {
         ExecutorService threadPool = Executors.newFixedThreadPool(100);
-        // CDL总数和操作数保持一致
+        // CDL 总数和操作数保持一致
         CountDownLatch cdl = new CountDownLatch(10000);
         for (int i = 1; i <= 10000; ++i) {
             final int index = i;
