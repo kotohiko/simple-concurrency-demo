@@ -7,16 +7,18 @@ import java.util.Random;
  */
 public class Match2 {
     public static void main(String[] args) {
-        Runner2 liuXiang = new Runner2();
-        Thread thread1 = new Thread(liuXiang);
-        thread1.setName("刘翔");
-        Thread jacob = new Thread(new Runner2());
-        jacob.setName("Jacob");
-        Thread luFei = new Thread(new Runner2());
-        luFei.setName("路飞");
+        Thread thread1 = new Thread(new Runner2());
+        thread1.setName("曹操");
+
+        Thread liu = new Thread(new Runner2());
+        liu.setName("刘备");
+
+        Thread sun = new Thread(new Runner2());
+        sun.setName("孙权");
+
         thread1.start();
-        jacob.start();
-        luFei.start();
+        liu.start();
+        sun.start();
     }
 }
 
@@ -24,15 +26,16 @@ class Runner2 implements Runnable {
     @Override
     public void run() {
         int speed = new Random().nextInt(100);
-        for (int i = 1; i <= 100; ++i) {
+        for (int i = 1; i <= 10; ++i) {
             try {
                 Thread.sleep(1000);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            // Thread.currentThread()用于获取当前执行的线程对象
-            // 在Runnable中是无法使用this获取到当前线程对象的
-            System.out.println(Thread.currentThread().getName() + "已前进" + (i * speed) + "米（" + speed + "米/秒)");
+            // Thread.currentThread() 用于获取当前执行的线程对象
+            // 在 Runnable 中是无法使用 this 获取到当前线程对象的
+            System.out.println(i + Thread.currentThread().getName()
+                    + "已前进" + (i * speed) + "米（" + speed + "米/秒)");
         }
     }
 }
